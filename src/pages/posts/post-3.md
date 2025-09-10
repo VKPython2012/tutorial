@@ -14,4 +14,4 @@ tags: ["astro", "blogging", "learning astro"]
 
 Published on: 03/09/2025
 
-I like randomly stuffs
+I like random stuffs
