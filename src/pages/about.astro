@@ -1,4 +1,7 @@
 ---
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
 const pageTitle = "About Me";
 
 const identity = {
@@ -9,6 +12,12 @@ const identity = {
 };
 
 const skills = ["Python", "JavaScript", "HTML", "CSS", "C#", "Unity"];
+
+const happy = true;
+const finished = false;
+const goal = 8;
+
+const skillColor = "navy"
 ---
 
 <html lang="en">
@@ -18,20 +27,32 @@ const skills = ["Python", "JavaScript", "HTML", "CSS", "C#", "Unity"];
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<style define:vars={{skillColor}}>
+			h1 {
+				color: purple;
+				font-size: 4rem;
+			}
+			.skill {
+				color: var(--skillColor);
+				font-weight: bold;
+			}
+		</style>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/blog">Blog</a>
-        <a href="/about">About</a>
+        <Navigation/>
 
 		<h1>{pageTitle}</h1>
         <h2>... and my site(s) :3</h2>
 
         <p>I'm learning Astro to create my first blog.</p>
 
+		{happy && <p>I am happy to be learning astro.</p>}
+		{finished && <p>I finished the tutorial.</p>}
+		{goal === 8 ? <p>My goal is to finish the tutorial in 8 lessons.</p> : <p>My goal is not 8 lessons.</p>}
+
 		<p>Here are some facts about me:</p>
 		<ul>
-			<li>My name is {identity.firstName}.</li>
+			<li>My name is <b>{identity.firstName}</b>.</li>
 			<li>I live in {identity.country} and I work as a {identity.occupation}.</li>
 			{identity.hobbies.length >= 2 &&
 				<li>Two of my hobbies are {identity.hobbies[0]} and {identity.hobbies[1]}.</li>
@@ -39,7 +60,8 @@ const skills = ["Python", "JavaScript", "HTML", "CSS", "C#", "Unity"];
 		</ul>
 		<p>My skills are:</p>
 		<ul>
-			{skills.map((skill) => <li>{skill}</li>)}
+			{skills.map((skill) => <li class="skill">{skill}</li>)}
 		</ul>
     </body>
+	<Footer/>
 </html>
