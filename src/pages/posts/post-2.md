@@ -1,7 +1,8 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "My second blog post"
 pubDate: 03/09/2025
-description: "This is the first post on my new Astro blog"
+description: "This is the second post on my new Astro blog"
 author: "Bill"
 image:
     url: "https://docs.astro.build/assets/arc.webp"
@@ -9,9 +10,5 @@ image:
 tags: ["astro", "blogging", "learning astro"]
 
 ---
-
-# My second blog post
-
-Published on: 03/09/2025
 
 I want to stay home

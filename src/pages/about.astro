@@ -1,7 +1,7 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import '../styles/global.css';
+
+import BaseLayout from "../Layouts/BaseLayout.astro";
+
 const pageTitle = "About Me";
 
 const identity = {
@@ -20,6 +20,47 @@ const goal = 8;
 const skillColor = "navy"
 ---
 
+<BaseLayout pageTitle={pageTitle}>
+	<h2>... and my site(s) :3</h2>
+
+	<p>I'm learning Astro to create my first blog.</p>
+
+	{happy && <p>I am happy to be learning astro.</p>}
+	{finished && <p>I finished the tutorial.</p>}
+	{goal === 8 ? <p>My goal is to finish the tutorial in 8 lessons.</p> : <p>My goal is not 8 lessons.</p>}
+
+	<p>Here are some facts about me:</p>
+	<ul>
+		<li>My name is <b>{identity.firstName}</b>.</li>
+		<li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+		{identity.hobbies.length >= 2 &&
+			<li>Two of my hobbies are {identity.hobbies[0]} and {identity.hobbies[1]}.</li>
+		}
+	</ul>
+	<p>My skills are:</p>
+	<ul>
+		{skills.map((skill) => <li class="skill">{skill}</li>)}
+	</ul>
+
+	<!-- Page-specific style -->
+	<style define:vars={{skillColor}}>
+		.skill {
+			color: var(--skillColor);
+			font-weight: bold;
+		}
+	</style>
+
+	<!-- Styles which affects the layout -->
+	<style is:global>
+		h1 {
+			color: purple;
+			font-size: 4rem;
+		}
+	</style>
+
+</BaseLayout>
+
+<!-- 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -64,4 +105,7 @@ const skillColor = "navy"
 		</ul>
     </body>
 	<Footer/>
-</html>
+	<script>
+		import "../scripts/menu.js"
+	</script>
+</html>-->
