@@ -1,36 +1,10 @@
 ---
 import BaseLayout from "../../Layouts/BaseLayout.astro";
+import '../../styles/global.css';
 const allPosts = Object.values(import.meta.glob('../posts/*.md', {eager: true}));
 const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
 const pageTitle = "Tags"
 ---
-
-<style>
-    a {
-        color: #00539f;
-        text-transform: capitalize;
-        text-decoration: none;
-    }
-
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .tag {
-        margin: .25em;
-        border: dotted 1px #a1a1a1;
-        border-radius: .5em;
-        padding: .5em 1em;
-        font-size: 1.5em;
-        background-color: #f8fcfd;
-    }
-
-    .tag:hover {
-        transform: scale(1.1);
-        transition: transform 0.5s;
-    }
-</style>
 
 <BaseLayout pageTitle={pageTitle}>
     <div class="tags">
