@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+layout: ../../Layouts/MarkdownPostLayout.astro
 title: "Dynamic Display of New Blog Posts"
 pubDate: 08/10/2025
 description: "Learning how to use `meta.glob()`"
